@@ -9,9 +9,6 @@ function App() {
 
   return (
     <Router>
-      {/* CRITICAL FIX: All <Route> elements MUST be wrapped in <Routes> 
-        in react-router-dom v6+.
-      */}
       <Routes>
         <Route path="/" element={<Medicamentos/>} />
       </Routes>

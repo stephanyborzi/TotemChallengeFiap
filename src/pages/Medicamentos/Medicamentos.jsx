@@ -11,8 +11,8 @@ const StatusModal = ({ status, onClose }) => {
 
     const isSuccess = status === 'success';
     const message = isSuccess 
-        ? "✅ Solicitação cadastrada com sucesso! Você será chamado em breve."
-        : "❌ Solicitação cancelada. O carrinho e os dados foram limpos.";
+        ? "Solicitação cadastrada com sucesso! Você será chamado em breve."
+        : "Solicitação cancelada. O carrinho e os dados foram limpos.";
     
     const title = isSuccess ? "Solicitação Finalizada" : "Solicitação Cancelada";
     const className = isSuccess ? "success" : "error";
@@ -34,7 +34,7 @@ const CartItem = ({ item, updateQuantity, removeItem }) => (
         <div className="item-header">
             <span className="item-name">{item.name}</span>
             <button className="delete-btn" onClick={() => removeItem(item.name)}>
-                <FaTrashAlt /> 
+                <FaTrashAlt color="#3498db"/> 
             </button>
         </div>
         <div className="item-quantity-control">
@@ -45,14 +45,14 @@ const CartItem = ({ item, updateQuantity, removeItem }) => (
                     onClick={() => updateQuantity(item.name, item.quantity - 1)}
                     disabled={item.quantity <= 1}
                 >
-                    <FaMinus /> 
+                    <FaMinus color="#3498db" /> 
                 </button>
                 <input type="number" value={item.quantity} readOnly />
                 <button 
                     className="qty-btn" 
                     onClick={() => updateQuantity(item.name, item.quantity + 1)}
                 >
-                    <FaPlus /> 
+                    <FaPlus color="#3498db" /> 
                 </button>
             </div>
         </div>
@@ -75,7 +75,7 @@ const ProductCard = ({ product, onAddToCart }) => (
             onClick={() => onAddToCart(product)}
             disabled={product.stock === 0}
         >
-            {product.stock > 0 ? <FaPlus /> : '🚫'} 
+            {product.stock > 0 ? <FaPlus color="#3498db" /> : '🚫'} 
         </button>
     </div>
 );
@@ -329,7 +329,7 @@ const SelfServiceSystem = () => {
                             onClick={handleFinalizeRequest} 
                             disabled={cart.length === 0} 
                         >
-                            <FaCheck /> Finalizar Solicitação 
+                            <FaCheck color="#3498db" /> Finalizar Solicitação 
                         </button>
                         
                         <button 
@@ -337,7 +337,7 @@ const SelfServiceSystem = () => {
                             onClick={handleCancelRequest}
                             disabled={cart.length === 0 && !applicantData.name && !applicantData.registration}
                         >
-                            <FaTimes /> Cancelar 
+                            <FaTimes color="#3498db" /> Cancelar 
                         </button>
                     </div>
                 </aside>
